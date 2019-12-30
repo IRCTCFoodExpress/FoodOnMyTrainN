@@ -45,14 +45,14 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
 
 
         holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.tea_coffee));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.breakfast_veg));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.breakfast_nonveg));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.meal_veg));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.meal_egg));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.meal_chicken));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.biryani_veg));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.biryani_egg));
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.biryani_chicken));
+        holder.txtAdptOrderListBreakfastCount.setText(String.valueOf(order.breakfast_veg));
+        holder.txtAdptOrderListBreakfastNonCount.setText(String.valueOf(order.breakfast_nonveg));
+        holder.txtAdptOrderListMealCount.setText(String.valueOf(order.meal_veg));
+        holder.txtAdptOrderListMealEggCount.setText(String.valueOf(order.meal_egg));
+        holder.txtAdptOrderListMealChickenCount.setText(String.valueOf(order.meal_chicken));
+        holder.txtAdptOrderListBiryaniCount.setText(String.valueOf(order.biryani_veg));
+        holder.txtAdptOrderListBiryaniEggCount.setText(String.valueOf(order.biryani_egg));
+        holder.txtAdptOrderListBiryaniChickenCount.setText(String.valueOf(order.biryani_chicken));
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +125,7 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
                 txtAdptOrderListMealChickenCount,txtAdptOrderListMealChickenPrice,
                 txtAdptOrderListBiryaniCount,txtAdptOrderListBiryaniPrice,
                 txtAdptOrderListBiryaniEggCount,txtAdptOrderListBiryaniEggPrice,
+                txtAdptOrderListBiryaniChickenCount,txtAdptOrderListBiryaniChickenPrice,
                 txtAdptOrderListTotal,txtAdptOrderListStatus;
         Button btnAdptOrderListStatus;
         TextInputLayout txtlayAdptOrderListNameTitle,txtlayAdptOrderListNumberTitle,
