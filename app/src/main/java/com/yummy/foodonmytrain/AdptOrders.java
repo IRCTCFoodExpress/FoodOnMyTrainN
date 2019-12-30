@@ -54,6 +54,18 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
         holder.txtAdptOrderListBiryaniEggCount.setText(String.valueOf(order.biryani_egg));
         holder.txtAdptOrderListBiryaniChickenCount.setText(String.valueOf(order.biryani_chicken));
 
+        holder.txtAdptOrderListTeaCoffeePrice.setText(String.valueOf(15*order.tea_coffee)+" X");
+        holder.txtAdptOrderListBreakfastPrice.setText(String.valueOf(40*order.breakfast_veg)+" X");
+        holder.txtAdptOrderListBreakfastNonPrice.setText(String.valueOf(50*order.breakfast_nonveg)+" X");
+        holder.txtAdptOrderListMealPrice.setText(String.valueOf(70*order.meal_veg)+" X");
+        holder.txtAdptOrderListMealEggPrice.setText(String.valueOf(80*order.meal_egg)+" X");
+        holder.txtAdptOrderListMealChickenPrice.setText(String.valueOf(120*order.meal_chicken)+" X");
+        holder.txtAdptOrderListBiryaniPrice.setText(String.valueOf(70*order.biryani_veg)+" X");
+        holder.txtAdptOrderListBiryaniEggPrice.setText(String.valueOf(80*order.biryani_egg)+" X");
+        holder.txtAdptOrderListBiryaniChickenPrice.setText(String.valueOf(100*order.biryani_chicken)+" X");
+
+        holder.txtAdptOrderListTotal.setText(" = "+(order.tea_coffee *(15)+ order.breakfast_veg *(40)+ order.breakfast_nonveg *(50)+ order.meal_veg *(70)+order.meal_egg*(80)+ order.meal_chicken *(120)+ order.biryani_veg *(70)+ order.biryani_egg *(80)+ order.biryani_chicken *(100)));
+
         if(order.tea_coffee<=0)
             holder.layAdptOrderListItem1.setVisibility(View.GONE);
         if(order.breakfast_veg<=0)
