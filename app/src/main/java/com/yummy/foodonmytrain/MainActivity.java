@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView mNavigationView;
     SharedPreferences mSharedPreferences;
     View mNavigationProfileDetails;
-    TextView mTxtNavProfileName, mTxtNavProfilePhone,mTxtNavProfileDob,mTxtNavProfileUser ;
+    TextView mTxtNavProfileName, mTxtNavProfilePhone,/*mTxtNavProfileDob,*/mTxtNavProfileUser ;
     Button mBtnNavEditProfile;
     private static final String PARAM1 = "Edit";
 
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mTxtNavProfileName = mNavigationView.findViewById(R.id.txtNavProfileName);
         mTxtNavProfilePhone = mNavigationView.findViewById(R.id.txtNavProfilePhone);
-        mTxtNavProfileDob = mNavigationView.findViewById(R.id.txtNavProfileDOB);
+        //mTxtNavProfileDob = mNavigationView.findViewById(R.id.txtNavProfileDOB);
         mTxtNavProfileUser= mNavigationView.findViewById(R.id.txtNavProfileUser);
         mBtnNavEditProfile = mNavigationView.findViewById(R.id.btnNavEditProfile);
     }
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String tempFullName = personalDetails.getFirstname() +" "+ personalDetails.getLastname();
             mTxtNavProfileName.setText(tempFullName);
             mTxtNavProfilePhone.setText(personalDetails.getPersonalno());
-            mTxtNavProfileDob.setText(personalDetails.getPersonalDOB());
+            //mTxtNavProfileDob.setText(personalDetails.getPersonalDOB());
 
             if(personalDetails.getUserType().length() !=0) {
                 String tempGender = personalDetails.getUserType();
