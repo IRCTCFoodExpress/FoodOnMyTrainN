@@ -54,6 +54,25 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
         holder.txtAdptOrderListBiryaniEggCount.setText(String.valueOf(order.biryani_egg));
         holder.txtAdptOrderListBiryaniChickenCount.setText(String.valueOf(order.biryani_chicken));
 
+        if(order.tea_coffee<=0)
+            holder.layAdptOrderListItem1.setVisibility(View.GONE);
+        if(order.breakfast_veg<=0)
+            holder.layAdptOrderListItem2.setVisibility(View.GONE);
+        if(order.breakfast_nonveg<=0)
+            holder.layAdptOrderListItem3.setVisibility(View.GONE);
+        if(order.meal_veg<=0)
+            holder.layAdptOrderListItem4.setVisibility(View.GONE);
+        if(order.meal_egg<=0)
+            holder.layAdptOrderListItem5.setVisibility(View.GONE);
+        if(order.meal_chicken<=0)
+            holder.layAdptOrderListItem6.setVisibility(View.GONE);
+        if(order.biryani_veg<=0)
+            holder.layAdptOrderListItem7.setVisibility(View.GONE);
+        if(order.biryani_egg<=0)
+            holder.layAdptOrderListItem8.setVisibility(View.GONE);
+        if(order.biryani_chicken<=0)
+            holder.layAdptOrderListItem9.setVisibility(View.GONE);
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +151,7 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
                 txtlayAdptOrderListTrainIdTitle,txtlayAdptOrderListSeatNoTitle;
         LinearLayout layAdptOrderListItem1,layAdptOrderListItem2,layAdptOrderListItem3,
                 layAdptOrderListItem4,layAdptOrderListItem5,layAdptOrderListItem6,
-                layAdptOrderListItem7,layAdptOrderListItem8;
+                layAdptOrderListItem7,layAdptOrderListItem8,layAdptOrderListItem9;
 
         CustHolder(View itemView) {
             super(itemView);
@@ -157,6 +176,8 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
             txtAdptOrderListBiryaniPrice=itemView.findViewById(R.id.txtAdptOrderListBiryaniPrice);
             txtAdptOrderListBiryaniEggCount=itemView.findViewById(R.id.txtAdptOrderListBiryaniEggCount);
             txtAdptOrderListBiryaniEggPrice=itemView.findViewById(R.id.txtAdptOrderListBiryaniEggPrice);
+            txtAdptOrderListBiryaniChickenCount=itemView.findViewById(R.id.txtAdptOrderListBiryaniChickenCount);
+            txtAdptOrderListBiryaniChickenPrice=itemView.findViewById(R.id.txtAdptOrderListBiryaniChickenPrice);
             txtAdptOrderListTotal=itemView.findViewById(R.id.txtAdptOrderListTotal);
             txtAdptOrderListStatus=itemView.findViewById(R.id.txtAdptOrderListStatus);
 
@@ -175,6 +196,7 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
             layAdptOrderListItem6=itemView.findViewById(R.id.layAdptOrderListItem6);
             layAdptOrderListItem7=itemView.findViewById(R.id.layAdptOrderListItem7);
             layAdptOrderListItem8=itemView.findViewById(R.id.layAdptOrderListItem8);
+            layAdptOrderListItem9=itemView.findViewById(R.id.layAdptOrderListItem9);
         }
     }
 }
