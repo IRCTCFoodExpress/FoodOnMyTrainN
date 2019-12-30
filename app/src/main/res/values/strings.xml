@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FoodOnMyTrain</string>
+    <string name="resend_message">Resend SMS</string>
+    <string name="profileTitle">Profile</string>
+    <string name="member_name">Member name</string>
+    <string name="contact_phone_no">Phone No</string>
+    <string name="please_wait">Please wait</string>
+    <string name="save">Save</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_seller">Seller</string>
+    <string name="user_customer">Customer</string>
+</resources>

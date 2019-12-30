@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "2668177026",
+    "firebase_url": "https://railphoneauth.firebaseio.com",
+    "project_id": "railphoneauth",
+    "storage_bucket": "railphoneauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2668177026:android:ebac850bb4be1b0f71369b",
+        "android_client_info": {
+          "package_name": "com.yummy.foodonmytrain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2668177026-bsmhugcuv5kvgpf59h9h2128lctu175c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yummy.foodonmytrain",
+            "certificate_hash": "4494760389acf957e64cc2f0487e70f0eb60edd7"
+          }
+        },
+        {
+          "client_id": "2668177026-ivaqh0gdt0aa51gbdal9v90mbf8gsm58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKS0IH217aoFXfInaBEgora98NoOQQrcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2668177026-ivaqh0gdt0aa51gbdal9v90mbf8gsm58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
