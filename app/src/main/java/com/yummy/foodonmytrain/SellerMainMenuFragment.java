@@ -76,7 +76,6 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
                     System.out.println("The read failed: " + databaseError.getMessage());
                 }
             });
-
         }
         mNewOrderbtn=view.findViewById(R.id.new_orderbtn);
 
