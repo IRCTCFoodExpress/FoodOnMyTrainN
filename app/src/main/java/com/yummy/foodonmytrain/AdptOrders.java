@@ -44,15 +44,15 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
         holder.edtAdptOrderListSeatNumber.setText(order.customer_seatno);
 
 
-        holder.txtAdptOrderListTeaCoffeeCount.setText(String.valueOf(order.tea_coffee));
-        holder.txtAdptOrderListBreakfastCount.setText(String.valueOf(order.breakfast_veg));
-        holder.txtAdptOrderListBreakfastNonCount.setText(String.valueOf(order.breakfast_nonveg));
-        holder.txtAdptOrderListMealCount.setText(String.valueOf(order.meal_veg));
-        holder.txtAdptOrderListMealEggCount.setText(String.valueOf(order.meal_egg));
-        holder.txtAdptOrderListMealChickenCount.setText(String.valueOf(order.meal_chicken));
-        holder.txtAdptOrderListBiryaniCount.setText(String.valueOf(order.biryani_veg));
-        holder.txtAdptOrderListBiryaniEggCount.setText(String.valueOf(order.biryani_egg));
-        holder.txtAdptOrderListBiryaniChickenCount.setText(String.valueOf(order.biryani_chicken));
+        holder.txtAdptOrderListTeaCoffeeCount.setText(" "+String.valueOf(order.tea_coffee));
+        holder.txtAdptOrderListBreakfastCount.setText(" "+String.valueOf(order.breakfast_veg));
+        holder.txtAdptOrderListBreakfastNonCount.setText(" "+String.valueOf(order.breakfast_nonveg));
+        holder.txtAdptOrderListMealCount.setText(" "+String.valueOf(order.meal_veg));
+        holder.txtAdptOrderListMealEggCount.setText(" "+String.valueOf(order.meal_egg));
+        holder.txtAdptOrderListMealChickenCount.setText(" "+String.valueOf(order.meal_chicken));
+        holder.txtAdptOrderListBiryaniCount.setText(" "+String.valueOf(order.biryani_veg));
+        holder.txtAdptOrderListBiryaniEggCount.setText(" "+String.valueOf(order.biryani_egg));
+        holder.txtAdptOrderListBiryaniChickenCount.setText(" "+String.valueOf(order.biryani_chicken));
 
         holder.txtAdptOrderListTeaCoffeePrice.setText(String.valueOf(15*order.tea_coffee)+" X");
         holder.txtAdptOrderListBreakfastPrice.setText(String.valueOf(40*order.breakfast_veg)+" X");
