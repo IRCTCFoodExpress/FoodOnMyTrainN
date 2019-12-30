@@ -32,8 +32,6 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
     RecyclerView mCustomerOrderRecyc;
     Button mNewOrderbtn;
 
-    SharedPreferences sharedPreferences;
-
     public static SellerMainMenuFragment newInstance(String typeOfRequest) {
         SellerMainMenuFragment fragment = new SellerMainMenuFragment();
         if(typeOfRequest!=null) {
@@ -47,9 +45,6 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        sharedPreferences = getActivity().getSharedPreferences("AuthData", Context.MODE_PRIVATE);
-
     }
 
     @Nullable
@@ -85,7 +80,7 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
         }
         mNewOrderbtn=view.findViewById(R.id.new_orderbtn);
 
-        if(sharedPreferences.getString("UserType","").equalsIgnoreCase("Seller"))
+        if(!SharedPreferencesManager.get(SharedPreferencesManager.IS_USER_CUSTOMER,false))
             mNewOrderbtn.setVisibility(View.GONE);
 
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Order implements Serializable {
 
 
+    String orderId;
     int tea_coffee;
     int breakfast_veg;
     int breakfast_nonveg;
@@ -17,6 +18,15 @@ public class Order implements Serializable {
     String customername;
     String customer_seatno;
     String customer_phone;
+    boolean orderStatus;
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
 
     public String getCustomer_trainno() {
         return customer_trainno;
@@ -122,5 +132,13 @@ public class Order implements Serializable {
 
     public void setBiryani_chicken(int biryani_chicken) {
         this.biryani_chicken = biryani_chicken;
+    }
+
+    public boolean isOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(boolean orderStatus) {
+        this.orderStatus = orderStatus;
     }
 }

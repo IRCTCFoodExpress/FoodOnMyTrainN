@@ -53,7 +53,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
     private View tempView;
     private Personal_details personalDetails;
     private DatabaseHelper databaseHelper;
-    private SharedPreferences mSharedPreferences;
     private FrameLayout mFrameLayoutMemberDetails;
     private TextInputEditText mMemberFirstName,mMemberMiddleName,mMemberLastName;
     private TextInputEditText mMemberTrainNo=null;
@@ -82,7 +81,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
         setHasOptionsMenu(true);
 
         databaseHelper = new DatabaseHelper(getActivity());
-        mSharedPreferences = getActivity().getSharedPreferences("AuthData", Context.MODE_PRIVATE);
         ((DrawerLocker)getActivity()).setDrawerEnabled(false,"Profile details");
     }
 
@@ -173,10 +171,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
 
         if (isConnected(Objects.requireNonNull(getActivity()))) {
             databaseHelper.insertMember(personalDetails1);
-            SharedPreferences.Editor mSPEditor = mSharedPreferences.edit();
-            mSPEditor.putBoolean("ProfilePresent",true);
-            mSPEditor.apply();
-            mSPEditor.commit();
+            SharedPreferencesManager.store(SharedPreferencesManager.IS_PROFILE_FILLED,true);
 
         }else{
             nointernetcaller();
@@ -366,12 +361,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
             hideSoftKeyboard();
             if(checkPersonalDetailsErrors()) {
                 getViewValues();
-                SharedPreferences.Editor mSPEditor = mSharedPreferences.edit();
                 switch (mUserTypeBtn.getText().toString()) {
                     case "Seller":
-                        mSPEditor.putString("UserType",mUserTypeBtn.getText().toString());
-                        mSPEditor.apply();
-                        mSPEditor.commit();
+                        SharedPreferencesManager.store(SharedPreferencesManager.IS_USER_CUSTOMER,false);
                         if (mMemberTrainNo.getText().toString().equals("")) {
                             mMemberTrainNo.setError("Please enter Train no.");
                         }else {
@@ -382,9 +374,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
                         }
                         break;
                     case "Customer":
-                        mSPEditor.putString("UserType",mUserTypeBtn.getText().toString());
-                        mSPEditor.apply();
-                        mSPEditor.commit();
+                        SharedPreferencesManager.store(SharedPreferencesManager.IS_USER_CUSTOMER,true);
                         getFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.mainFragContent, new CustomerMainMenuFragment())

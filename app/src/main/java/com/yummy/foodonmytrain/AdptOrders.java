@@ -16,6 +16,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -38,11 +40,17 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CustHolder holder, int position) {
+
+        if(SharedPreferencesManager.get(SharedPreferencesManager.IS_USER_CUSTOMER,false)){
+            holder.txtlayAdptOrderListNameTitle.setVisibility(View.GONE);
+            holder.txtlayAdptOrderListNumberTitle.setVisibility(View.GONE);
+            holder.btnAdptOrderListStatus.setVisibility(View.GONE);
+        }
+
         Order order= orderArrayListArrayList.get(position);
         holder.edtAdptOrderListName.setText(order.customername);
         holder.edtAdptOrderListNumber.setText(order.customer_phone);
         holder.edtAdptOrderListSeatNumber.setText(order.customer_seatno);
-
 
         holder.txtAdptOrderListTeaCoffeeCount.setText(" "+String.valueOf(order.tea_coffee));
         holder.txtAdptOrderListBreakfastCount.setText(" "+String.valueOf(order.breakfast_veg));
@@ -85,6 +93,23 @@ public class AdptOrders extends RecyclerView.Adapter<AdptOrders.CustHolder> {
         if(order.biryani_chicken<=0)
             holder.layAdptOrderListItem9.setVisibility(View.GONE);
 
+        if(order.isOrderStatus()) {
+            holder.txtAdptOrderListStatus.setText("Delivered");
+            holder.btnAdptOrderListStatus.setVisibility(View.GONE);
+        }else
+            holder.txtAdptOrderListStatus.setText("Pending");
+
+        holder.btnAdptOrderListStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference mFirebaseDatabaseRef=FirebaseDatabase.getInstance().getReference();
+                order.setOrderStatus(true);
+                mFirebaseDatabaseRef.child("Orders")
+                        .child(order.getCustomer_trainno())
+                        .child(order.getOrderId())
+                        .setValue(order);
+            }
+        });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

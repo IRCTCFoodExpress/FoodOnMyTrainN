@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
     NavigationView mNavigationView;
-    SharedPreferences mSharedPreferences;
     View mNavigationProfileDetails;
     TextView mTxtNavProfileName, mTxtNavProfilePhone,/*mTxtNavProfileDob,*/mTxtNavProfileUser ;
     Button mBtnNavEditProfile;
@@ -50,12 +49,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         databaseHelper= new DatabaseHelper(this);
 
         initNavigationView();
-        //Auth data retriever
-        mSharedPreferences=getSharedPreferences("AuthData", MODE_PRIVATE);
 
-        if(mSharedPreferences.getBoolean("isAuth", false)) {
+        if(SharedPreferencesManager.get(SharedPreferencesManager.IS_USER_LOGIN, false)) {
 
-            if(mSharedPreferences.getBoolean("ProfilePresent", false )) {
+            if(SharedPreferencesManager.get(SharedPreferencesManager.IS_PROFILE_FILLED, false )) {
                 personalDetails = databaseHelper.getMemberDetails();
                 setNavigationValues();
 

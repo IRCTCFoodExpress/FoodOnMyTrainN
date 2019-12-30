@@ -445,13 +445,14 @@ public class CustomerMainMenuFragment extends Fragment implements View.OnClickLi
 
                             order.setCustomer_trainno(mTrain_no);
                             order.setCustomer_seatno(mSeat_no);
-
+                            order.setOrderId(getUUID());
+                            order.setOrderStatus(false);
                             if(mFirebaseDatabaseRef==null)
                                 mFirebaseDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
                             mFirebaseDatabaseRef.child("Orders")
                                     .child(mTrain_no)
-                                    .child(getUUID())
+                                    .child(order.getOrderId())
                                     .setValue(order);
 
                            /* mFirebaseDatabaseRef.child("Users")
