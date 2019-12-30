@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }else {
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.mainFragContent, new CustomerMainMenuFragment())
+                            .replace(R.id.mainFragContent,SellerMainMenuFragment.newInstance(null))
                             .commit();
                 }
             }else{
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mTxtNavProfileName = mNavigationView.findViewById(R.id.txtNavProfileName);
         mTxtNavProfilePhone = mNavigationView.findViewById(R.id.txtNavProfilePhone);
-        mTxtNavProfileDob = mNavigationView.findViewById(R.id.txtNavProfileDOB);
+        //mTxtNavProfileDob = mNavigationView.findViewById(R.id.txtNavProfileDOB);
         mTxtNavProfileUser= mNavigationView.findViewById(R.id.txtNavProfileUser);
         mBtnNavEditProfile = mNavigationView.findViewById(R.id.btnNavEditProfile);
     }

@@ -459,8 +459,9 @@ public class CustomerMainMenuFragment extends Fragment implements View.OnClickLi
                                     .child(getUUID())
                                     .setValue(order);*/
 
-                            Toast.makeText(getActivity(), "Order Placed ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Order Placed Successfully ", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
+                            getFragmentManager().popBackStack();
                         }else {
                             mTrainNo.setError("Please enter train no.");
                             mSeatNo.setError("Please enter seat no.");

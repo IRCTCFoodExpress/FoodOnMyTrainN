@@ -207,9 +207,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
 
         switch(view.getId()) {
 
-            case R.id.edt_DOB:
+           /* case R.id.edt_DOB:
                 hideSoftKeyboard();
-                break;
+                break;*/
         }
     }
 
@@ -219,7 +219,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
         if (hasFocus) {
             switch (v.getId()) {
 
-                case R.id.edt_DOB:
+              /*  case R.id.edt_DOB:
                     hideSoftKeyboard();
 
                     Calendar calendar = Calendar.getInstance();
@@ -229,7 +229,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
                     curr_day = calendar.get(Calendar.DAY_OF_MONTH);
 
                     showDate(curr_year, curr_month, curr_day, R.style.DatePickerSpinner);
-                    break;
+                    break;*/
             }
         }
     }
@@ -241,14 +241,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
 
             switch (view.getId()) {
 
-                case R.id.edt_DOB:
+                /*case R.id.edt_DOB:
                     hideSoftKeyboard();
                     Calendar calendar = Calendar.getInstance();
                     curr_year = calendar.get(Calendar.YEAR);
                     curr_month = calendar.get(Calendar.MONTH);
                     curr_day = calendar.get(Calendar.DAY_OF_MONTH);
                     showDate(curr_year, curr_month, curr_day, R.style.DatePickerSpinner);
-                    break;
+                    break;*/
             }
         }
         return true;
@@ -362,11 +362,16 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId()== R.id.menusavebttn){
+
             hideSoftKeyboard();
             if(checkPersonalDetailsErrors()) {
                 getViewValues();
+                SharedPreferences.Editor mSPEditor = mSharedPreferences.edit();
                 switch (mUserTypeBtn.getText().toString()) {
                     case "Seller":
+                        mSPEditor.putString("UserType",mUserTypeBtn.getText().toString());
+                        mSPEditor.apply();
+                        mSPEditor.commit();
                         if (mMemberTrainNo.getText().toString().equals("")) {
                             mMemberTrainNo.setError("Please enter Train no.");
                         }else {
@@ -377,6 +382,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
                         }
                         break;
                     case "Customer":
+                        mSPEditor.putString("UserType",mUserTypeBtn.getText().toString());
+                        mSPEditor.apply();
+                        mSPEditor.commit();
                         getFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.mainFragContent, new CustomerMainMenuFragment())

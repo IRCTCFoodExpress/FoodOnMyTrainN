@@ -1,9 +1,12 @@
 package com.yummy.foodonmytrain;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,13 +30,17 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
     ArrayList<Order> mOrder=new ArrayList<>();
     AdptOrders mAdptOrders;
     RecyclerView mCustomerOrderRecyc;
+    Button mNewOrderbtn;
 
+    SharedPreferences sharedPreferences;
 
     public static SellerMainMenuFragment newInstance(String typeOfRequest) {
         SellerMainMenuFragment fragment = new SellerMainMenuFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM, typeOfRequest);
-        fragment.setArguments(args);
+        if(typeOfRequest!=null) {
+            Bundle args = new Bundle();
+            args.putString(ARG_PARAM, typeOfRequest);
+            fragment.setArguments(args);
+        }
         return fragment;
     }
 
@@ -41,6 +48,7 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        sharedPreferences = getActivity().getSharedPreferences("AuthData", Context.MODE_PRIVATE);
 
     }
 
@@ -75,6 +83,22 @@ public class SellerMainMenuFragment extends Fragment implements View.OnClickList
             });
 
         }
+        mNewOrderbtn=view.findViewById(R.id.new_orderbtn);
+
+        if(sharedPreferences.getString("UserType","").equalsIgnoreCase("Seller"))
+            mNewOrderbtn.setVisibility(View.GONE);
+
+
+        mNewOrderbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.mainFragContent, new CustomerMainMenuFragment())
+                        .addToBackStack("FromSellerFragment")
+                        .commit();
+            }
+        });
         return view;
     }
 
