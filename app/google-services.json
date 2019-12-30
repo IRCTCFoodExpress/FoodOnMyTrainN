@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "789281250301-kjmk19d3q1dt9tm5si3holfece7a85uu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yummy.foodonmytrain",
+            "certificate_hash": "4494760389acf957e64cc2f0487e70f0eb60edd7"
+          }
+        },
+        {
           "client_id": "789281250301-jlpdc375optnkim8ugk84sbcp5jmlpf7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -28,14 +36,6 @@
           "android_info": {
             "package_name": "com.yummy.foodonmytrain",
             "certificate_hash": "f5d72b21956ae3a7d88c6bf9dfc7aaac496169ea"
-          }
-        },
-        {
-          "client_id": "789281250301-6htgd4u75t8hoi138ulelr0ovp0s4jck.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.yummy.foodonmytrain",
-            "certificate_hash": "4494760389acf957e64cc2f0487e70f0eb60edd7"
           }
         },
         {
