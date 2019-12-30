@@ -377,7 +377,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, V
                         SharedPreferencesManager.store(SharedPreferencesManager.IS_USER_CUSTOMER,true);
                         getFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.mainFragContent, new CustomerMainMenuFragment())
+                                .replace(R.id.mainFragContent, SellerMainMenuFragment.newInstance(null))
                                 .commit();
                         break;
                 }
