@@ -65,7 +65,6 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
     private CountryCodePicker mAuthCCP;
     private PinEntryEditText mAuthEdtOTPEntry;
     private EditText mAuthEdtPhoneNo;
-    private SharedPreferences mSharedPreferences;
     private String mAuthPhoneWithCountryCode;
     private static  final int RESOLVE_HINT=101;
     boolean mPhoneNoValid=false;
@@ -79,7 +78,6 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.lay_phoneauth);
 
         FirebaseApp.initializeApp(this);
-        mSharedPreferences=getSharedPreferences("AuthData", MODE_PRIVATE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -330,11 +328,7 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case STATE_SIGNIN_SUCCESS:
-                SharedPreferences.Editor mSPEditor = mSharedPreferences.edit();
-                mSPEditor.putBoolean("isAuth",true);
-                mSPEditor.putString("PhoneNo",mAuthCCP.getSelectedCountryCodeWithPlus()+""+mAuthEdtPhoneNo.getText().toString());
-                mSPEditor.apply();
-                mSPEditor.commit();
+                SharedPreferencesManager.store(SharedPreferencesManager.IS_USER_LOGIN,true);
                 Toast.makeText(this, "Sending to main", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(PhoneAuthActivity.this,MainActivity.class));
                 finish();
